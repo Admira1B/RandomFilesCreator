@@ -13,21 +13,33 @@ namespace RPM
             int repeatCount = 0;
             System.Console.WriteLine("Кол-во файлов для создания: ");
             int numOfReprat = int.Parse(Console.ReadLine());
+            string folderPath = @"";
             
             do
             {
-                string folderPATH = @"";
-                folderPATH = System.IO.Path.Combine(folderPATH, folder);
+                string fullPathToCreate = System.IO.Path.Combine(folderPath, folder);
                 string fileName = System.IO.Path.GetRandomFileName();
-                folderPATH = System.IO.Path.Combine(folderPATH, fileName);
-                System.IO.File.Create(folderPATH);
-
+                fullPathToCreate = System.IO.Path.Combine(fullPathToCreate, fileName);
+                System.IO.File.Create(fullPathToCreate);
                 repeatCount++;
                 System.Console.WriteLine("Файл создан " + repeatCount);
             } while (repeatCount != numOfReprat);
-            
-            System.Console.WriteLine("Нажмите любую клавишу для продолжения.");
-            Console.ReadKey();
+
+            for (int i = 0; i <= 3; i++)
+            {
+                System.Console.WriteLine("Введите маску для поиска файлов: ");
+                string? filtSearch = Console.ReadLine();
+                string fullPathToSeatch = System.IO.Path.Combine(folderPath, folder);
+                string NewCatalog = System.IO.Path.Combine(fullPathToSeatch,@$"{filtSearch}");
+                System.IO.Directory.CreateDirectory(NewCatalog);
+                foreach (var fileSearched in Directory.GetFiles(fullPathToSeatch, $"*{filtSearch}*"))
+                {
+                    System.Console.WriteLine(fileSearched);
+                    string name = Path.GetFileName(fileSearched);
+                    File.Move(fileSearched, NewCatalog + "/" + name);
+                    System.Console.WriteLine("Файл был пермещен в папку{0}", NewCatalog);
+                }
+            }
         }
     }
 }

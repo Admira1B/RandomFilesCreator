@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qomi/HpivddAKZfyrj4NSIlD8GRV5RRtVji7Dc5mXOAicJH0P63BpjdNqqRL5l+lfY4Y5zf2bSgAOVQF/GzDxw==",
+  "dgSpecHash": "EUVIwWM/2JK8PMKnBinDms/k5mTExlgTa3NNNONhM9bztYcNFUK6YW1ii9ertaJ9+YJUTnL//QF/m8IO4n89qw==",
   "success": true,
-  "projectFilePath": "/home/kaiser/Рабочий стол/Учеба/C#/RPM/RPM.csproj",
+  "projectFilePath": "/home/kaiser/Рабочий стол/Учеба/C#/RPM/FileCreator/RPM.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
